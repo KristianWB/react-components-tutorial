@@ -4,21 +4,22 @@
         <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
         <script src="https://unpkg.com/react/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
-        <style>
-          nav {
-            display: flex;
-            justify-content: space-around;
-            background-color: cadetblue;
-          }
-          nav > a {
-            color: coral;
-            font-size: 30px;
-          }
-        </style>
     </head>
     <div id="root"></div>
     <script type="text/babel">
 
+        const Display = ({ifTruthy=true, children}) =>
+            (ifTruthy)
+                ? React.Children.only(children)
+                : null
+        
+        const age = 18
 
+        ReactDOM.render(
+            <Display ifTruthy={age >= 18} >
+                <h1>You can vote!</h1>
+            </Display>,
+            document.getElementById('root')
+        )
     </script>
 </html>
