@@ -12,23 +12,18 @@
             <h1>{props.meal}</h1>
 
         class Menu extends React.Component {
-            constructor(props) {
-                super(props)
-                this.state= {
+            state= {
                     meal: "Spaghetti"
                 }
-                this.addSideDish = this.addSideDish.bind(this)
-                this.removeSideDish = this.removeSideDish.bind(this)
 
-            }
-
-            addSideDish() {
-                this.setState({
-                    meal: "Spaghetti and Salad"
+        
+            addSideDish = () => {
+                this.setState(prevState => {
+                    return {meal: `${prevState.meal} & Salad`}
                 })
             }
 
-            removeSideDish() {
+            removeSideDish = () => {
                 this.setState({
                     meal: "Spaghetti"
                 })
@@ -41,10 +36,12 @@
                         <NowEating meal={this.state.meal} />
                         {(this.state.meal === "Spaghetti")
                         ? <button onClick={this.addSideDish}>Add Side Dish</button>
-                        : null}
-                        {(this.state.meal === "Spaghetti and Salad")
+                        : null
+                        }
+                        {(this.state.meal === "Spaghetti & Salad")
                         ? <button onClick={this.removeSideDish}>remove Side Dish</button>
-                        : null}
+                        : null
+                        }
                     </div>
                     
                 )
