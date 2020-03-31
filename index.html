@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+        <script src="https://unpkg.com/react/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    </head>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const NowEating = props => 
+            <h1>{props.meal}</h1>
+
+        class Menu extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state= {
+                    meal: "Spaghetti"
+                }
+            }
+
+            render()  {
+                return (
+                    <div>
+                    
+                    </div>
+                )
+            }
+        }
+
+
+
+        ReactDOM.render(
+            <Menu />,
+            document.getElementById('root')
+        )
+    </script>
+</html>
