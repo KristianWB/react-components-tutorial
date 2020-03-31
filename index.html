@@ -17,13 +17,36 @@
                 this.state= {
                     meal: "Spaghetti"
                 }
+                this.addSideDish = this.addSideDish.bind(this)
+                this.removeSideDish = this.removeSideDish.bind(this)
+
             }
+
+            addSideDish() {
+                this.setState({
+                    meal: "Spaghetti and Salad"
+                })
+            }
+
+            removeSideDish() {
+                this.setState({
+                    meal: "Spaghetti"
+                })
+            }
+
 
             render()  {
                 return (
                     <div>
-                    
+                        <NowEating meal={this.state.meal} />
+                        {(this.state.meal === "Spaghetti")
+                        ? <button onClick={this.addSideDish}>Add Side Dish</button>
+                        : null}
+                        {(this.state.meal === "Spaghetti and Salad")
+                        ? <button onClick={this.removeSideDish}>remove Side Dish</button>
+                        : null}
                     </div>
+                    
                 )
             }
         }
