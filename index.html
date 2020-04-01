@@ -17,8 +17,36 @@
         </style>
     </head>
     <div id="root"></div>
+
+    
+
     <script type="text/babel">
 
 
+
+      const NavItems = () =>
+        <React.Fragment>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/contact">Contact</a>       
+        </React.Fragment>
+
+         
+      
+      const App = () =>
+      <header>
+        <nav>
+          <NavItems/>
+        </nav>
+      </header>
+
+
+      ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    )
     </script>
+
+    
 </html>
