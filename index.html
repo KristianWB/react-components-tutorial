@@ -41,15 +41,14 @@
               <div>
                 <p>This is great magic: {context.state.name}</p>
                 <p>The resors is: {context.state.status}</p>
-                <button onClick={context.changeStatus}>Close Resort</button>
-                {(context.state.status === "OPEN")
-                        ? <button onClick={context.changeStatusClose}>Close Resort</button>
-                        : null
-                        }
-                        {(context.state.status === "CLOSED")
-                        ? <button onClick={context.changeStatusOpen}>Open Resort</button>
-                        : null
-                        }
+                  {(context.state.status === "OPEN")
+                  ? <button onClick={context.changeStatusClose}>Close Resort</button>
+                  : null
+                  }
+                  {(context.state.status === "CLOSED")
+                  ? <button onClick={context.changeStatusOpen}>Open Resort</button>
+                  : null
+                  }
               </div>
             )}
           </Context.Consumer>
