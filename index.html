@@ -22,25 +22,48 @@
 
     <script type="text/babel">
 
+    const skiDictionary = [
+      { id: 1, name: "Send", definition: "To throw one's body off of a cliff or rock" },
+      { id: 2, name: "Chowder", definition: "Snow or powder that has been skied" }
+    ]
 
+    const NavItems = () =>
+            <React.Fragment>
+              <a href="/">Home</a>
+              <a href="/about">About</a>
+              <a href="/services">Services</a>
+              <a href="/contact">Contact</a>       
+            </React.Fragment>
 
-      const NavItems = () =>
-        <React.Fragment>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/services">Services</a>
-          <a href="/contact">Contact</a>       
-        </React.Fragment>
+      class App extends React.Component {
+        
+          state = {
+            data: []
+          }
+        
+      
 
          
-      
-      const App = () =>
-      <header>
-        <nav>
-          <NavItems/>
-        </nav>
-      </header>
-
+      render = () => {
+      return (
+        <div>
+        <header>
+          <nav>
+            <NavItems/>
+          </nav>
+        </header>
+        <dl>
+          {skiDictionary.map(term => (
+            <React.Fragment key={term.id}>
+              <dt>{term.name}</dt>
+              <dd>{term.definition}</dd>
+            </React.Fragment>
+          ))}
+        </dl>
+      </div>
+      )
+      }
+}
 
       ReactDOM.render(
       <App />,
